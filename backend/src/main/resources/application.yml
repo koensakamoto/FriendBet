@@ -1,5 +1,6 @@
 server:
   port: 8080
+  address: 0.0.0.0
 
 spring:
   application:
@@ -8,27 +9,25 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/circlebet_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:password}
+    password: ${DB_PASSWORD:riq21#A20}
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   jpa:
     hibernate:
-      ddl-auto: validate
-    show-sql: false
+      ddl-auto: update
+    show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
   
   flyway:
-    enabled: true
-    locations: classpath:db/migration
-    baseline-on-migrate: true
+    enabled: false
   
   
   security:
     jwt:
-      secret: ${JWT_SECRET:circlebet-super-secret-jwt-key-that-is-at-least-256-bits-long}
+      secret: ${JWT_SECRET:Y2lyY2xlYmV0X3N1cGVyX3NlY3JldF9qd3Rfa2V5X3RoYXRfaXNfYXRfbGVhc3RfMjU2X2JpdHNfbG9uZw==}
       expiration: 86400000 # 24 hours in milliseconds
       refresh-expiration: 604800000 # 7 days in milliseconds
 
@@ -36,6 +35,9 @@ logging:
   level:
     com.circlebet: DEBUG
     org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.validation: DEBUG
+    org.hibernate.validator: DEBUG
 
 management:
   endpoints:
