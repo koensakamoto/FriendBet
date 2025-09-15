@@ -27,7 +27,7 @@ spring:
   
   security:
     jwt:
-      secret: ${JWT_SECRET:Y2lyY2xlYmV0X3N1cGVyX3NlY3JldF9qd3Rfa2V5X3RoYXRfaXNfYXRfbGVhc3RfMjU2X2JpdHNfbG9uZw==}
+      secret: ${JWT_SECRET:Y2lyY2xlYmV0X3N1cGVyX3NlY3VyZV9qd3Rfc2VjcmV0X2tleV90aGF0X2lzX2F0X2xlYXN0XzY0X2NoYXJzX2xvbmdfZm9yX2hzNTEyX2FsZ29yaXRobV9zZWN1cml0eQo=}
       expiration: 86400000 # 24 hours in milliseconds
       refresh-expiration: 604800000 # 7 days in milliseconds
 
