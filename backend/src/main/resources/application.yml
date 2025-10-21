@@ -23,8 +23,26 @@ spring:
   
   flyway:
     enabled: false
-  
-  
+
+  # Redis Configuration
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000  # 10 minutes in milliseconds
+      cache-null-values: false
+
   security:
     jwt:
       secret: ${JWT_SECRET:Y2lyY2xlYmV0X3N1cGVyX3NlY3VyZV9qd3Rfc2VjcmV0X2tleV90aGF0X2lzX2F0X2xlYXN0XzY0X2NoYXJzX2xvbmdfZm9yX2hzNTEyX2FsZ29yaXRobV9zZWN1cml0eQo=}
