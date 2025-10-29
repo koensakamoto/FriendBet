@@ -49,6 +49,14 @@ spring:
       expiration: 86400000 # 24 hours in milliseconds
       refresh-expiration: 604800000 # 7 days in milliseconds
 
+# Bet Scheduling Configuration
+bet:
+  scheduling:
+    # Close expired bets every 2 minutes (120000 ms)
+    close-expired-interval-ms: ${BET_CLOSE_INTERVAL:120000}
+    # Process resolvable bets every 5 minutes (300000 ms)
+    process-resolvable-interval-ms: ${BET_RESOLVE_INTERVAL:300000}
+
 logging:
   level:
     com.betmate: DEBUG
